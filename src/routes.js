@@ -8,8 +8,8 @@ import Home from './pages/Home';
 
 const Routes = createAppContainer(
     createSwitchNavigator({
-        Login,
-        Home
+        Home,
+        Login
     })
 );
 

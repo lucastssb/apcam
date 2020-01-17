@@ -11,28 +11,34 @@ import {
 } from 'react-native';
 
 import LoginBackground from '../assets/LoginBackground.jpg';
-import logoo from '../assets/logoo.png';
+import logo from '../assets/logoo.png';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Login() {
     return(
+
+       
         <ImageBackground source={LoginBackground} 
                 style={style.background}>
-
+                
                     <KeyboardAvoidingView enabled= {Platform.OS === 'ios'} behavior= 'padding' style={style.mainContainer}>
-                         <Image source={logoo} style={style.logo} />
+                         <Image source={logo} style={style.logo} />
+                   
                          <View style={style.form}>
                              <TextInput 
                              style={style.input} 
                              placeholder= 'Seu E-mail' 
-                             placeholderTextColor= '#999'/>
+                             placeholderTextColor= '#999'
+                             keyboardType= 'email-address'
+                             autoCapitalize= 'none'
+                             autoCorrect= {false}/>
                              <TextInput style={style.input} 
                              secureTextEntry= {true} 
                              placeholder= 'Senha' 
                              placeholderTextColor= '#999'/>
-                             <TouchableOpacity style={style.button}>
-                                 <Text style={style.buttonText}>Login</Text>
-                             </TouchableOpacity>
+                                <TouchableOpacity style={style.button}>
+                                    <Text style={style.buttonText}>Login</Text>
+                                </TouchableOpacity> 
                          </View>
                     </KeyboardAvoidingView>
          </ImageBackground>
@@ -69,7 +75,7 @@ const style = StyleSheet.create({
         borderColor: '#ddd',
         paddingHorizontal: 20,
         fontSize: 16,
-        color: '#444',
+        color: '#ddd',
         height: 44,
         marginBottom: 20,
         borderRadius: 3

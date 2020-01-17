@@ -7,7 +7,7 @@ import {
     Image
 } from 'react-native';
 import Video from 'react-native-video';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 import img from '../assets/image.jpg';
 import img2 from '../assets/image2.png';
 
@@ -31,7 +31,6 @@ const DATA = [
 
 export default function Home() {
     return(
-        <ScrollView>
         <View style= {styles.container}>
 
             <View style= {styles.news}>
@@ -69,8 +68,6 @@ export default function Home() {
         </View>
             
         </View>
-
-        </ScrollView>
     )
 }
 
