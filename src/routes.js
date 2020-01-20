@@ -4,21 +4,13 @@ import {
 } from 'react-navigation';
 
 import Login from './pages/Login';
-import Home from './pages/Home';
-import Store from './pages/Store';
-import StudentPage from './pages/StudentPage';
-import Profile from './pages/Profile';
-import VideoClasses from './pages/VideoClasses';
+import Drawer from './routes/drawer.routes';
 
 
 const Routes = createAppContainer(
     createSwitchNavigator({
-        Home,
+        Drawer,
         Login,
-        Store,
-        VideoClasses,
-        Profile,
-        StudentPage,
         
     })
 );
