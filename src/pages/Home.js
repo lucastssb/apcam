@@ -6,120 +6,93 @@ import {
     StyleSheet,
     Image
 } from 'react-native';
-import Video from 'react-native-video';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
-import img from '../assets/image.jpg';
-import img2 from '../assets/image2.png';
+import { createAppContainer} from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
-const DATA = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
-      thumbnail: 'https://www.novaconcursos.com.br/portal/wp-content/uploads/2019/04/pm-sp-soldado-tiny.png',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-      thumbnail: 'https://www.novaconcursos.com.br/portal/wp-content/uploads/2019/04/pm-sp-soldado-tiny.png',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-      thumbnail: 'https://www.novaconcursos.com.br/portal/wp-content/uploads/2019/04/pm-sp-soldado-tiny.png',
-    },
-  ];
+import { ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
 
-export default function Home() {
+import SpotList from '../components/SpotList';
+import VideoPlayer from '../components/VideoPlayer';
+
+
+import Store from '../pages/Store';
+import StudentPage from '../pages/StudentPage';
+import Profile from '../pages/Profile';
+import VideoClasses from '../pages/VideoClasses';
+import videoo  from '../assets/video.mp4';
+
+
+
+const Home = ({ navigation }) => {
     return(
-        <ScrollView>
+
+      
+
+        <ScrollView> 
+        
         <View style= {styles.container}>
 
-            <View style= {styles.news}>
-             <Text style= {styles.titleNews}>Notícias</Text>
-
-                <FlatList
-                    style= {styles.listNews}
-                    data= {DATA}
-                    keyExtractor= {item => item.id}
-                    horizontal
-                    showsHorizontalScrollIndicator= {false}
-                    renderItem= {({item}) => (
-                        <View style= {styles.listNewsItem}>
-                        <Image style= {styles.imageNews} source={img}/>
-                        <Text>{item.title}</Text>
-                         
-                        </View>
-                )} />
-        </View>
-
-        <View style= {styles.contests}>
-            <Text style= {styles.titleContests}>Concursos</Text>
-
-            <FlatList
-                    style= {styles.listContests}
-                    data= {DATA}
-                    keyExtractor= {item => item.id}
-                    showsVerticalScrollIndicator= {true}
-                    renderItem= {({item}) => (
-                        <View style= {styles.listContestsItem}>
-                            <Image style= {styles.imageContests} source={img2}/>
-                            <Text>{item.title}</Text>
-                        </View>
-                )} />
-        </View>
+        <View style= {styles.video}>
+        <TouchableHighlight 
+            onPress={}
+            style= {styles.buttom}>
             
+            <Image 
+              style= {styles.image}
+              source= {require('../assets/logo.png')}
+              />
+         </TouchableHighlight>
+
+          
         </View>
 
+          <SpotList/>  
+        
+        </View>
+        
         </ScrollView>
+
+        
     )
 }
+
+const TabNavigator = createBottomTabNavigator({
+  Home: Home,
+  StudentPage: StudentPage,
+  VideoClasses: VideoClasses,
+  Store: Store,
+  Profile: Profile,
+});
+
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Home: Home,
+    
+  },
+  {
+    drawerBackgroundColor: 'rgba(255,255,255,.9)',
+    contentOptions: {
+      activeTintColor: '#fff',
+      activeBackgroundColor: '#6b52ae',
+    },
+  }
+);
+
+export default createAppContainer(  TabNavigator);
+
+
 
 const styles =  StyleSheet.create({
     container: {
         marginTop: 30
     },
 
-    titleNews: {
-        fontSize: 20,
-        paddingHorizontal: 20,
-        marginBottom: 15
-
+    video: {
+      marginTop: 30
     },
 
-    titleContests: {
-      fontSize: 20,
-      paddingHorizontal: 20,
-     
-
-  },
     
-    news: {
-      paddingHorizontal: 20,
-      marginBottom: 10
-    },
 
-    contests: {
-      paddingHorizontal: 20
-    },
-
-    listContestsItem: {
-      paddingTop: 20
-    },
-
-    listNewsItem: {
-      marginRight: 15
-    },
-
-    imageNews: {
-        width:250,
-        height: 140,
-        borderRadius: 5
-        
-      },
-      imageContests: {
-        width:400,
-        height: 200,
-        borderRadius: 3
-        
-      },
+    
 })
