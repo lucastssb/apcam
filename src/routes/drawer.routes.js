@@ -5,7 +5,7 @@ import {
   StyleSheet,
   View,
   ImageBackground,
-  Image
+  Image,
 
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -18,19 +18,12 @@ import ProfilePic from '../assets/profilePic.jpg';
 const CustomDrawerContent = props => {
   return(
     <SafeAreaView style= {styles.container}> 
-    
-     
-     <ImageBackground source={DrawerHeader} style= {styles.drawerHeader}>
-     <View style= {styles.profileHeader}>
-      <Image style= {styles.profilePicture} source= {ProfilePic}/>
-      <Text style= {styles.profileName}> Lucas da Silva Barbosa</Text>
-     </View>
-      
+      <ImageBackground source={DrawerHeader} style= {styles.drawerHeader}>
+        <View style= {styles.profileHeader}>
+          <Image style= {styles.profilePicture} source= {ProfilePic}/>
+          <Text style= {styles.profileName}> Lucas da Silva Barbosa</Text>
+        </View>
       </ImageBackground>
-      
-
-    
-
     <DrawerItems {...props} />
     </SafeAreaView>
 
