@@ -2,14 +2,15 @@ import React from 'react';
 import {
     View,
     Text,
+    SafeAreaView
 } from 'react-native';
 
 export default function StudentPage() {
     return(
 
-        <View>
+        <SafeAreaView >
             <Text>Pagina do estudante</Text>
-        </View>
+        </SafeAreaView>
     );
     
 }

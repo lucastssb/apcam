@@ -1,13 +1,14 @@
 import React from 'react';
 import{ 
     View,
-    Text
+    Text,
+    SafeAreaView
 } from 'react-native';
 
 export default function VideoClasses() {
     return(
-        <View>
+        <SafeAreaView>
             <Text> Video aulas</Text>        
-        </View>
+        </SafeAreaView>
     );
 }

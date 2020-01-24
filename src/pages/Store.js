@@ -2,14 +2,15 @@ import React from 'react';
 import {
     View,
     Text,
+    SafeAreaView
 } from 'react-native';
 
 export default function Store() {
     return(
 
-        <View>
+        <SafeAreaView>
             <Text>Loja</Text>
-        </View>
+        </SafeAreaView>
     );
     
 }

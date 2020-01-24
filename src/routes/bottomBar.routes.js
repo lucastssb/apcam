@@ -7,11 +7,11 @@ import Profile from '../pages/Profile';
 import VideoClasses from '../pages/VideoClasses';
 
 const BottomBar = createBottomTabNavigator({
-    Home: Home,
-    StudentPage: StudentPage,
-    VideoClasses: VideoClasses,
-    Store: Store,
-    Profile: Profile,
+    Início: Home,
+    Estudante: StudentPage,
+    Aulas: VideoClasses,
+    Loja: Store,
+    Perfil: Profile,
   });
 
 export default BottomBar;

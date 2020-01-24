@@ -2,14 +2,15 @@ import React from 'react';
 import {
     View,
     Text,
+    SafeAreaView
 } from 'react-native';
 
 export default function Profile() {
     return(
 
-        <View>
+        <SafeAreaView>
             <Text>Perfil</Text>
-        </View>
+        </SafeAreaView>
     );
     
 }
