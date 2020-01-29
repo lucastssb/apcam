@@ -2,7 +2,6 @@ import React from 'react';
 import {
     View,
     Text,
-    SafeAreaView,
     ImageBackground,
     StyleSheet,
 } from 'react-native';
@@ -14,7 +13,7 @@ export default function StudentPage() {
     return(
 
         <ScrollView>
-        <SafeAreaView style= {styles.container}>
+        <View style= {styles.container}>
             <ImageBackground style= {styles.imageBackground} source= {studentBackground}>
             <View style= {styles.notificationPainel}>
 
@@ -31,7 +30,7 @@ export default function StudentPage() {
                 
             </View>
             
-        </SafeAreaView>
+        </View>
         </ScrollView>
     );
     
@@ -39,11 +38,11 @@ export default function StudentPage() {
 
 const styles = StyleSheet.create({
     container: {
-
+        flex: 1,
     },
     imageBackground: {
         flex: 1,
-        height: 300,
+        minHeight: 350,
         width: 415,
     },
 
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
         marginTop: 130,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
-        opacity: 0.7
+        opacity: 0.6
         
     },
     bottons: {
@@ -65,15 +64,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 10,
         flexWrap: 'wrap',
-        alignItems: 'center',
-        paddingHorizontal: 10,
+        justifyContent: 'center',
+
     },
 
     botton: {
-        height: 150,
-        width: 177,
+        height: 140,
+        width: 157,
         backgroundColor: '#497240',
-        margin: 10,
+        margin: 20,
         borderRadius: 3,
         opacity: 0.9,
         

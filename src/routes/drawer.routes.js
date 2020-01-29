@@ -6,6 +6,7 @@ import {
   View,
   ImageBackground,
   Image,
+  StatusBar
 
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -18,6 +19,7 @@ import ProfilePic from '../assets/profilePic.jpg';
 const CustomDrawerContent = props => {
   return(
     <SafeAreaView style= {styles.container}> 
+    <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent= {true}/>
       <ImageBackground source={DrawerHeader} style= {styles.drawerHeader}>
         <View style= {styles.profileHeader}>
           <Image style= {styles.profilePicture} source= {ProfilePic}/>

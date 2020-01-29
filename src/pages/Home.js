@@ -5,13 +5,12 @@ import {
     Text,
     StyleSheet,
     Image,
-    SafeAreaView,
 } from 'react-native';
 
 
 
 
-import { ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
+import { ScrollView} from 'react-native-gesture-handler';
 
 import SpotList from '../components/SpotList';
 
@@ -25,7 +24,7 @@ const Home = ({ navigation }) => {
 
         <ScrollView> 
         
-        <SafeAreaView style= {styles.container}>
+        <View style= {styles.container}>
             <View style= {styles.video}> 
                 <Image style= {styles.videoThumbnail} source= {videoThumbnailPic}></Image>
                 <Image style= {styles.play} source= {playIcon}/>
@@ -35,7 +34,7 @@ const Home = ({ navigation }) => {
         
           <SpotList/>  
         
-        </SafeAreaView>
+        </View>
         
         </ScrollView>
 
@@ -47,20 +46,20 @@ export default Home;
 
 const styles =  StyleSheet.create({
     container: {
-        marginTop: 30,
-        
+       flex: 1,
+ 
     },
 
     video: {
         flex: 1,
         justifyContent: 'center',
-       
-
+        
     },
 
     videoThumbnail: {
         height: 300,
         width: 500,
+        
     },
 
     play: {
