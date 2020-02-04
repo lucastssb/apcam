@@ -15,15 +15,12 @@ import logo from '../assets/logoo.png';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Login() {
-    return(
-
-       
+    return(    
         <ImageBackground source={LoginBackground} 
                 style={style.background}>
                 
                     <KeyboardAvoidingView enabled= {Platform.OS === 'ios'} behavior= 'padding' style={style.mainContainer}>
-                         <Image source={logo} style={style.logo} />
-                   
+                         <Image source={logo} style={style.logo} />            
                          <View style={style.form}>
                              <TextInput 
                              style={style.input} 
@@ -41,9 +38,7 @@ export default function Login() {
                                 </TouchableOpacity> 
                          </View>
                     </KeyboardAvoidingView>
-         </ImageBackground>
-
-        
+         </ImageBackground>       
     );
 }
 

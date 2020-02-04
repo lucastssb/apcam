@@ -1,6 +1,7 @@
 import {
     createAppContainer,
-    createSwitchNavigator
+    createSwitchNavigator,
+    
 } from 'react-navigation';
 
 import Login from './pages/Login';
@@ -10,9 +11,8 @@ import Drawer from './routes/drawer.routes';
 const Routes = createAppContainer(
     createSwitchNavigator({
         Drawer,
-        Login,
-        
-    })
+        Login,  
+    },)
 );
 
 export default Routes; 
