@@ -17,28 +17,21 @@ import SpotList from '../components/SpotList';
 import videoThumbnailPic from '../assets/videoThumbnailPic.jpg';
 import playIcon from '../assets/playIcon.png';
 
+const navigationOptions = ({ navigation }) => ({
+    header: navigation.state.params ? navigation.state.params.header : undefined
+});
+
 const Home = ({ navigation }) => {
     return(
-
-      
-
-        <ScrollView> 
-        
-        <View style= {styles.container}>
-            <View style= {styles.video}> 
-                <Image style= {styles.videoThumbnail} source= {videoThumbnailPic}></Image>
-                <Image style= {styles.play} source= {playIcon}/>
+        <ScrollView nestedScrollEnabled= {true}>   
+            <View style= {styles.container}>
+                <View style= {styles.video}> 
+                    <Image style= {styles.videoThumbnail} source= {videoThumbnailPic}></Image>
+                    <Image style= {styles.play} source= {playIcon}/>
+                </View>
+            <SpotList/> 
             </View>
-
-      
-        
-          <SpotList/>  
-        
-        </View>
-        
         </ScrollView>
-
-        
     )
 }
 

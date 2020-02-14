@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
+import Login from '../pages/Login';
 
 import img from '../assets/image.jpg';
 import img2 from '../assets/image2.png';
@@ -41,24 +42,6 @@ export default function SpotList(props) {
                                 <View style= {styles.listNewsItem}>
                                     <Image style= {styles.imageNews} source={img}/>
                                     <Text>{item.title}</Text>                              
-                                </View>
-                        )} />
-                </View>
-
-                <View style= {styles.contests}>
-                    <Text style= {styles.titleContests}>Concursos</Text>
-
-                    <FlatList
-                            style= {styles.listContests}
-                            data= {DATA}
-                            keyExtractor= {item => item.id}
-                            horizontal
-                            showsHorizontalScrollIndicator= {false}
-                            renderItem= {({item}) => (
-                                <View style= {styles.listContestsItem}>
-                                    <Image style= {styles.imageContests} source={img2}/>
-                                    <Text>{item.title}</Text>
-                                    
                                 </View>
                         )} />
                 </View>
