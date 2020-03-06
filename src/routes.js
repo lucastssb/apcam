@@ -10,8 +10,8 @@ import Drawer from './routes/drawer.routes';
 
 const Routes = createAppContainer(
     createSwitchNavigator({
-        Drawer,
-        Login,  
+        Login, 
+        Drawer, 
     },)
 );
 
