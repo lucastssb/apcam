@@ -12,16 +12,18 @@ import {
 
 import Reactotron from 'reactotron-react-native';
 
-
+import JwtDecode from 'jwt-decode';
 import PropTypes from 'prop-types';
 import { SwitchActions , NavigationActions } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import Lottie from 'lottie-react-native';
 
 import api from '../services/api';
 
 import LoginBackground from '../assets/LoginBackground.jpg';
 import logo from '../assets/logoo.png';
+import loadingIcon from '../assets/lottie/loading.json';
 
 export default class Login extends Component {
 
@@ -46,26 +48,26 @@ handleSignInPress = async () => {
     if (this.state.email.length === 0 || this.state.password.length === 0) {
       this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
     } else {
-      try {
-           
-        const response = await api.post('/painel/public/oauth/token', {
+      try { 
+        const response = await api.post('/desenv/public/oauth/token', {
           username: this.state.email,
           password: this.state.password,
           grant_type:"password",
           client_id:2,
-          client_secret:"NMpBrwHLD8GaSTBURM0qVcqYJw3ErZVMwhefRrFa",
+          client_secret:"YgaD1vE5ixx7QgmpMTvVdjlUS7rmujQmRwOK3YIe",
         });
-        console.log(this.state.error);  
+        console.log(this.state.error);
         Reactotron.log(response.data);
+        let decoded = JwtDecode(response.data.access_token);
+        console.log(decoded.id);
           
         await AsyncStorage.setItem('@ApcamApp:token', response.data.access_token);
+        await AsyncStorage.setItem('@ApcamApp:userId', (decoded.id).toString());
         console.log(response.data.access_token);
       
         const navigateAction = NavigationActions.navigate({
           routeName: 'Drawer',
-        
           params: {},
-        
           action: NavigationActions.navigate({ routeName: 'Drawer' }),
         });
         
@@ -80,13 +82,13 @@ handleSignInPress = async () => {
     render() {
         return(    
         <ImageBackground source={LoginBackground} 
-                style={style.background}>
+                style={styles.background}>
                 
-                    <KeyboardAvoidingView enabled= {Platform.OS === 'ios'} behavior= 'padding' style={style.mainContainer}>
-                         <Image source={logo} style={style.logo} />            
-                         <View style={style.form}>
+                    <KeyboardAvoidingView enabled= {Platform.OS === 'ios'} behavior= 'padding' style={styles.mainContainer}>
+                         <Image source={logo} style={styles.logo} />            
+                         <View style={styles.form}>
                              <TextInput 
-                             style={style.input} 
+                             style={styles.input} 
                              placeholder= 'Seu E-mail' 
                              value={this.state.email}
                              onChangeText={this.handleEmailChange}
@@ -94,16 +96,20 @@ handleSignInPress = async () => {
                              keyboardType= 'email-address'
                              autoCapitalize= 'none'
                              autoCorrect= {false}/>
-                             <TextInput style={style.input} 
+                             <TextInput style={styles.input} 
                              secureTextEntry= {true}
                              value={this.state.password}
                              onChangeText={this.handlePasswordChange} 
                              placeholder= 'Senha' 
                              placeholderTextColor= '#999'/>
-                                <TouchableOpacity style={style.button}
+                                <TouchableOpacity style={styles.button}
                                                    onPress={this.handleSignInPress}>
-                                    <Text style={style.buttonText}>Login</Text>
+                                    <Text style={styles.buttonText}>Login</Text>
                                 </TouchableOpacity> 
+                                <View  style={styles.loginError}>
+                                <Text style={styles.textLoginError}>{this.state.error}</Text>
+                                <Lottie style={styles.loadingIcon} resizeMode= 'contain' source={loadingIcon} autoPlay loop/>
+                                </View>
                          </View>
                     </KeyboardAvoidingView>
          </ImageBackground>       
@@ -112,7 +118,7 @@ handleSignInPress = async () => {
   }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     background: {
         flex: 1
     },
@@ -152,7 +158,19 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 3
+    },
+
+    loginError: {
+      paddingTop: 10,
+    },
+
+    textLoginError: {
+      color: 'white',
+    },
+
+    loadingIcon: {
+      width: 60,
+      height: 60,
+      alignSelf: 'center',
     }
-
-
 })
