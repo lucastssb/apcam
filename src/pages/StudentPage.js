@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     imageBackground: {
         flex: 1,
         minHeight: 350,
-        width: 415,
     },
 
     notificationPainel: {
@@ -129,7 +128,7 @@ const styles = StyleSheet.create({
 
     botton: {
         height: 140,
-        width: 157,
+        width: 140,
         backgroundColor: '#497240',
         margin: 20,
         borderRadius: 3,

@@ -7,19 +7,12 @@ import {
     Image,
 } from 'react-native';
 
-
-
-
 import { ScrollView} from 'react-native-gesture-handler';
 
 import SpotList from '../components/SpotList';
 
 import videoThumbnailPic from '../assets/videoThumbnailPic.jpg';
 import playIcon from '../assets/playIcon.png';
-
-const navigationOptions = ({ navigation }) => ({
-    header: navigation.state.params ? navigation.state.params.header : undefined
-});
 
 const Home = ({ navigation }) => {
     return(
