@@ -1,2 +1,2 @@
 # apcam
-The Apcam app for android and ios
+The Apcam app 
